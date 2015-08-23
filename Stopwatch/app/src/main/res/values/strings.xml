@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Cycle15</string>
+    <string name="action_settings">Settings</string>
+    <string name="regular_speed">Half max resistance at an easy pace</string>
+    <string name="high_speed_half">Half maximum resistance pedal full speed</string>
+    <string name="high_speed_full">Maximum resistance pedal at full speed</string>
+    <string name="title_activity_info">Why Cycle15?</string>
+
+    <string name="info">Studies have shown that cycling is better than walking or running for maintaining muscle and strength, and high intensity intervals are better for fat burning.
+        So why not a combine the two? Not only is short duration, high intensity cardio better for strength and hypertrophy, it is also superior for fat loss.
+        Scientific research has found that people who perform four to six 30 second sprints lost twice as much body fat as people who performed low intensity cardio for 30-60 minutes.
+        This is most likely because high intensity sprinting or cycling causes your muscles to make high velocity contractions, activating fast twitch muscle fibers compared to endurance
+        cardio work which most likely will not activate the large fast twitch muscle fibers. Cycle15 is one of the best possible Cardio workouts.
+        It combines muscle building and cardio and is more effective than walking on an incline treadmill for over an hour.</string>
+    <string name="why">Why Cycle15?</string>
+
+    <string name="title_activity_settings">Settings</string>
+    <string name="sound">Sound</string>
+    <string name="reminder">Reminder</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+</resources>
