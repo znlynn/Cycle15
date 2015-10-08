@@ -13,21 +13,25 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Locale;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 
 import android.os.Handler;
 
 public class StopwatchActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
     private TextToSpeech engine;
 
-    private int seconds = 900;
-    private int phase = 300;
+    private int seconds = 9;//00;
+    private int phase = 3;//00;
     private int step = 0;
     private boolean running;
-    private boolean firstPlay;
     private boolean canSpeak;
     private boolean wasRunning;
-    private int bike = R.drawable.stationary_bike;
-    private int fastBike = R.drawable.moving_bike;
+    private int defaultBike;
+    private String defaultText;
+    private static final String IMAGE_RESOURCE = "image-resource";
+    private static final String TEXT_RESOURCE = "text-resource";
     private int play = R.drawable.play;
     private int pause = R.drawable.pause;
 
@@ -42,7 +46,14 @@ public class StopwatchActivity extends AppCompatActivity implements TextToSpeech
             step = savedInstanceState.getInt("step");
             canSpeak = savedInstanceState.getBoolean("canSpeak");
             wasRunning = savedInstanceState.getBoolean("wasRunning");
+            defaultBike = savedInstanceState.getInt(IMAGE_RESOURCE);
+            defaultText = savedInstanceState.getString(TEXT_RESOURCE);
         }
+        else {
+            defaultBike = R.drawable.stationary_bike;
+            defaultText = getString(R.string.regular_speed);
+        }
+        setDefaults();
         engine = new TextToSpeech(this, this);
         runTimer();
     }
@@ -55,6 +66,8 @@ public class StopwatchActivity extends AppCompatActivity implements TextToSpeech
         savedInstanceState.putInt("step", step);
         savedInstanceState.putBoolean("canSpeak", canSpeak);
         savedInstanceState.putBoolean("wasRunning", wasRunning);
+        savedInstanceState.putInt(IMAGE_RESOURCE, defaultBike);
+        savedInstanceState.putString(TEXT_RESOURCE, defaultText);
     }
 
     @Override
@@ -69,6 +82,14 @@ public class StopwatchActivity extends AppCompatActivity implements TextToSpeech
         super.onResume();
         if(wasRunning)
             running = true;
+    }
+
+    private void setDefaults() {
+        final ImageView bikeView = (ImageView)findViewById(R.id.bike);
+        final TextView instructions = (TextView)findViewById(R.id.instructions);
+        bikeView.setImageResource(defaultBike);
+        instructions.setText(defaultText);
+
     }
 
     public void onClickStartStop(View view) {
@@ -125,7 +146,7 @@ public class StopwatchActivity extends AppCompatActivity implements TextToSpeech
                     phaseTimeView.setText(phaseTime);
 
                     if (seconds == 0) {
-                        bikeView.setImageResource(bike);
+                        bikeView.setImageResource(R.drawable.stationary_bike);
                         running = false;
                         seconds = 900;
                         phase = 3;
@@ -134,35 +155,37 @@ public class StopwatchActivity extends AppCompatActivity implements TextToSpeech
                         if (phase == 0) {
                             step++;
                             if (step == 1) {
-                                if(canSpeak) {
+                                if (canSpeak) {
                                     engine.speak(highSpeedHalf, TextToSpeech.QUEUE_FLUSH, null, null);
                                 }
-                                bikeView.setImageResource(fastBike);
-                                instructions.setText(highSpeedHalf);
+                                bikeView.setImageResource(R.drawable.moving_bike);
+                                defaultText = highSpeedHalf;
                                 phase = 10;
-
+                                defaultBike = R.drawable.moving_bike;
 
                             } else if (step == 2) {
                                 if (canSpeak) {
                                     engine.speak(highSpeedHalf, TextToSpeech.QUEUE_FLUSH, null, null);
                                 }
-                                bikeView.setImageResource(fastBike);
-                                instructions.setText(highSpeedFull);
+                                bikeView.setImageResource(R.drawable.moving_bike);
+                                defaultText = highSpeedFull;
                                 phase = 20;
-
+                                defaultBike = R.drawable.moving_bike;
 
                             } else {
                                 if (canSpeak) {
                                     engine.speak(highSpeedHalf, TextToSpeech.QUEUE_FLUSH, null, null);
                                 }
-                                instructions.setText(normalSpeed);
-                                bikeView.setImageResource(bike);
+                                defaultText = normalSpeed;
+                                bikeView.setImageResource(R.drawable.stationary_bike);
                                 phase = 90;
                                 step = 0;
+                                defaultBike = R.drawable.stationary_bike;
                             }
 
                         }
                     }
+                    instructions.setText(defaultText);
                 }
                 handler.postDelayed(this, 1000);
             }
@@ -201,4 +224,5 @@ public class StopwatchActivity extends AppCompatActivity implements TextToSpeech
 
         return super.onOptionsItemSelected(item);
     }
+
 }

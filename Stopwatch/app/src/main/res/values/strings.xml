@@ -19,4 +19,7 @@
     <string name="reminder">Reminder</string>
     <string name="on">On</string>
     <string name="off">Off</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

@@ -25,8 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/total_time_view"
-        android:src="@drawable/stationary_bike"/>
+        android:layout_below="@id/total_time_view"/>
 
     <TextView
         android:id="@+id/phase_time_view"
