@@ -18,7 +18,7 @@
         android:textColor="@android:color/white"
         android:text="15:00"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="92sp"/>
+        android:textSize="92dp"/>
 
     <ImageView
         android:id="@+id/bike"
@@ -37,7 +37,7 @@
         android:textColor="@android:color/white"
         android:text="5:00"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="60sp"/>
+        android:textSize="60dp"/>
 
     <TextView
         android:id="@+id/instructions"

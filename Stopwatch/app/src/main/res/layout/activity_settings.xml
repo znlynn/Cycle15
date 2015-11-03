@@ -14,6 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/sound"
+        android:paddingBottom="15dp"
         android:textOn="@string/on"
         android:textOff="@string/off"
         android:checked="false" />
@@ -22,8 +24,9 @@
         android:id="@+id/reminder_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/sound_switch"
-        android:layout_alignLeft="@+id/sound_switch"
+        android:layout_alignBottom="@+id/reminder"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="15dp"
         android:textOn="@string/on"
         android:textOff="@string/off"/>
 
@@ -32,7 +35,7 @@
         android:id="@+id/sound"
         android:text="@string/sound"
         android:textColor="@android:color/white"
-        android:textSize="20dp"
+        android:textSize="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"/>
@@ -41,9 +44,19 @@
         android:id="@+id/reminder"
         android:text="@string/reminder"
         android:textColor="@android:color/white"
-        android:textSize="20dp"
+        android:textSize="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sound"/>
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:id="@+id/timePicker"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:focusable="false" />
+
 
 </RelativeLayout>
