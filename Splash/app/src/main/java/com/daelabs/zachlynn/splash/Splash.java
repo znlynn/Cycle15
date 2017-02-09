@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
@@ -20,9 +21,12 @@ public class Splash extends Activity{
 
         final ImageView iv = (ImageView) findViewById(R.id.imageView);
         final Animation an = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
-        final Animation an2 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.unrotate);
+        final Animation an2 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.grow);
+        AnimationSet s = new AnimationSet(false);//false means don't share interpolators
+        s.addAnimation(an);
+        s.addAnimation(an2);
 
-        iv.startAnimation(an);
+        iv.startAnimation(s);
         an.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

@@ -10,24 +10,35 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.daelabs.zachlynn.splash.MainActivity">
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/mlb_teams_names"
+        android:id="@+id/spinner"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <TextView
-        android:text="Color Theory"
+        android:text="Select A Team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvTitle"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
         android:textSize="30sp"
         android:textStyle="normal|bold"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimary"
+        android:layout_above="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="93dp" />
 
     <Button
-        android:text="Play"
+        android:text="Find"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnPlay"
         android:backgroundTint="@android:color/holo_green_dark"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="82dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

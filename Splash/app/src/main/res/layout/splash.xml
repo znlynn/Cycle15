@@ -12,7 +12,7 @@
     tools:context="com.daelabs.zachlynn.splash.Splash">
 
     <TextView
-        android:text="Splash Screen"
+        android:text="MLB News"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
@@ -28,5 +28,5 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/imageView"
-        android:src="@drawable/yin_yang" />
+        android:src="@drawable/baseball" />
 </RelativeLayout>
